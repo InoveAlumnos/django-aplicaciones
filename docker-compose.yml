@@ -1,0 +1,24 @@
+version: "3.3"
+# Este es un archivo de docker-compose.yml para configurar el uso de contenedores de software.
+
+services:
+  modulo_2:
+    # Imágen a utilizar:
+    image: python:3.9.5
+    # Nombre del container:
+    container_name: modulo_2
+    # Comportamiento ante fallos y al iniciar el sistema:
+    restart: always
+    # Carpetas enlazadas:
+    volumes:
+      # Source code directory:
+      - type: bind
+        source: .
+        target: /opt/back_end
+    # Puertos enlazados:
+    ports:
+        - "8000:8000"
+    # Control de consola:
+    stdin_open: true
+    tty: true
+    
